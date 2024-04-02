@@ -27,6 +27,21 @@
 		<meta property="og:title" content="TBFighters: Putting People Over Profits" />
 		<meta property="og:description" content="Fighting for accessible tuberculosis testing and treatment to save over a million lives a year. Take action with us now." />
 		<title>TBFighters | Putting People Over Profits</title>
+		<script>
+			window.addEventListener('load', () => {
+				const headings = document.querySelectorAll('section');
+				
+				document.addEventListener('scroll', (e) => {
+					headings.forEach(ha => {
+						const rect = ha.getBoundingClientRect();
+						if(rect.top > 0 && rect.top < 150) {
+							const location = window.location.toString().split('#')[0];
+							history.replaceState(null, null, location + '#' + ha.id);
+						}
+					});
+				});
+			});
+		</script>
 	</head>
 	<body class="homepage">
 		<!--BELOW THIS GETS COPIED TO ALL PAGES WHEN MENU CHANGES (CHANGE BODY CLASS TO PAGE NAME)-->
@@ -92,7 +107,7 @@
 			</section>
 			<section id="danaher" class="container">
 				<div class="wrapper">
-					<h2>Enter <span class="red">Danaher</span>.</h2>
+					<h2 href="#Enter Danaher">Enter <span class="red">Danaher</span>.</h2>
 					<p>
 						Danaher is a large U.S. corporation that owns many smaller biotech companies, including Cepheid. Cepheid designs and manufactures diagnostic tests. Their MTB/RIF GeneXpert test determines whether someone has tuberculosis and whether it is resistant to one antibiotic, and their MTB/XDR test determines if the infection is extensively drug-resistant or not, enabling effective treatment.
 
@@ -129,7 +144,7 @@
 			</section>
 			<section id="join" class="container">
 				<div class="wrapper">
-					<h2 class="action-head">Take <span class="red">Action</span>:</h2>
+					<h2 class="action-head" id="Take Action">Take <span class="red">Action</span>:</a></h2>
 					<div class="wrapper">
 						<div class="wrapper-columns">
 							<div class="join-left">
